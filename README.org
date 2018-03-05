@@ -31,3 +31,59 @@ _$=""_=!.@_:GOTO "@__"+"_"*!!_@__:_$=_$+"."GOTO@____@___:_$=_$+"_"@____:_%=_%--!
 + Labels must take sequential numbers to avoid unexpected behavior (the asspiler generates labels starting at the end of <# user labels>.
 + PUSH, POP, UNSHIFT, and SHIFT all work directly with the A variable only.
 + Comments are begun by either ' or ; and result in the rest of the line being ignored.
++ Valid variables are [A-Z]
+
+* Symbolic Language Instruction List
+** GOTO
+#+BEGIN_SRC
+GOTO @#
+#+END_SRC
+Jump to a label.
+** MOV
+#+BEGIN_SRC
+MOV [A-Z],Expression
+#+END_SRC
+Assign result of expression to a variable.  Expressions undergo the following transformations:
++ ~[A-Z]~ -> respective ~_~ variable
++ ~[0-9]+~ -> ~(!.+)~ construction
++ ~0~ -> ~.~
+** IF
+#+BEGIN_SRC
+IF [A-Z]
+#+END_SRC
+If the variable is truthy, evaluate the next instruction (do nothing).  Otherwise, skip one instruction.
+** PRINT :likely to change:
+#+BEGIN_SRC
+PRINT [A-Z]
+#+END_SRC
+Print the value of the specified variable to console.
+** SET
+#+BEGIN_SRC
+SET [A-Z]
+#+END_SRC
+Write the logical value of ~A~ to the binary tape at the index specified
+** GET
+#+BEGIN_SRC
+GET [A-Z]
+#+END_SRC
+Read from the binary tape at the index specified into ~A~
+** UNSHIFT
+#+BEGIN_SRC
+UNSHIFT
+#+END_SRC
+Unshift the logical value of ~A~ to the beginning of the binary tape
+** SHIFT
+#+BEGIN_SRC
+SHIFT
+#+END_SRC
+Shift the beginning of the binary tape into ~A~
+** PUSH
+#+BEGIN_SRC
+PUSH
+#+END_SRC
+Push the logical value of ~A~ to the end of the binary tape
+** POP
+#+BEGIN_SRC
+POP
+#+END_SRC
+Pop the end of the binary tape into ~A~
