@@ -1,6 +1,6 @@
 @yBASIC, pronounced "SnailBASIC" is a language subset for the 3DS interpreter [[http://smilebasic.com/en/][SmileBASIC]].
 
-One problem people often have with BASIC dialects is that there are not enough punctuation characters.
+One problem people often have with BASIC dialects is that there are not enough punctuation characters required.
 @yBASIC attempts to remedy this.  In fact, the only alphanumeric characters used are those for "GOTO"
 
 Note that live snails (@y) are not permitted in SnailBASIC: only deceased snails (@_) are valid.
@@ -25,4 +25,9 @@ _$=""_=!.@_:GOTO "@__"+"_"*!!_@__:_$=_$+"."GOTO@____@___:_$=_$+"_"@____:_%=_%--!
 #+END_SRC
 
 * Source Rules
-Labels must begin at the first column.
+One instruction per line.
+Labels must begin at the first column of their line.
+Labels are in the form ~@[0-9]+~.
+Labels must take sequential numbers to avoid unexpected behavior (the asspiler generates labels starting at the end of <# user labels>.
+PUSH, POP, UNSHIFT, and SHIFT all work directly with the A variable only.
+Comments are begun by either ' or ; and result in the rest of the line being ignored.
