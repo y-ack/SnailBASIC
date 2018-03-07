@@ -41,6 +41,7 @@ $program | ForEach-Object {
             $Output += "@_" + "_"*$LabelCount + ":"
             $IfClosure.Enqueue(("@" + "_"*$LabelCount + ":"))
             $PendingIfs++
+            $LabelCount += 2
         }
         "GOTO"
         {
