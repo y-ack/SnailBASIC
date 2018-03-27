@@ -2,6 +2,7 @@ param(
     [Parameter(Mandatory=$true,ValueFromPipeline=$true,Position=0)][Alias("src")][String[]]$program,
     [Parameter(Mandatory=$false,Position=1)][Alias("out","o")][String]$outfile = "out",
     [Alias("nofile","p")][switch]$stdout
+    [Alias("notape")][switch]$noheader
 )
 
 if($program.Length -eq 1)
@@ -14,7 +15,10 @@ if($program.Length -eq 1)
 [System.Collections.Queue]$IfClosure = [System.Collections.Queue]::new()
 [int]$PendingIfs = 0
 
-$Output += "_$=`"`""
+if (-not $noheader)
+{
+    $Output += "_$=`"`""
+}
 
 function Check-Separator(){if($Output[$Output.Length-1] -eq "_") {return ":"}else{return ""}}
 
