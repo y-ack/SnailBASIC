@@ -19,7 +19,7 @@ MOV A,A--A
 PRINT A
 GOTO @0
 #+END_SRC
-.\snailbasic .\snail.txt -stdout
+.\snailbasic source.txt -stdout
 #+BEGIN_SRC
 _$=""_=(!.)@_:GOTO "@__"+"_"*!!_@__:_$=_$+"."GOTO@____@___:_$=_$+"_"@____:_%=_%--!._=_--_?_:GOTO@_
 #+END_SRC
