@@ -7,7 +7,7 @@ Note that live snails (@y) are not permitted in SnailBASIC: only deceased snails
 
 @yBASIC can take no input, because snails are obstinate and don't care what you want them to do.
 
-snailbasic.ps1 is an compiler for @yBASIC.  Please submit issues as you encounter them.
+*snailbasic.ps1 is a compiler from an assembly-like symbolic system to @yBASIC.*  Please submit issues as you encounter them.
 
 * Examples
 source.txt:
